@@ -1,16 +1,15 @@
 <template>
-<div class='todolist'>
-  <div class='heading'>
-    <h1 class='title'>Планер</h1>
+  <div class='todolist'>
+    <div class='heading'>
+      <h1 class='title'>Планер</h1>
+    </div>
+    <input type='text' v-model='input'/>
+    <button v-on:click='addItem'>Добавить</button>
+    <div class='items'>
+      <ToDoItem v-for='item in items' v-bind:key="item.id" v-bind:item="item" v-on:remove="removeItem" v-on:mark="markAsImportant" />
+      <span v-if='items.length===0'>Нет задач</span>
+    </div>
   </div>
-  <input type='text' v-model='input'/>
-  <button v-on:click='addItem'>Добавить</button>
-  <div class='items'>
-    <ToDoItem v-for='item in items' v-bind:key="item.id" v-bind:item="item" v-on:remove="removeItem" v-on:mark="markAsImportant" />
-    <span v-if='items.length===0'>Нет задач</span>
-  </div>
-</div>
-
 </template>
 
 <script>
@@ -52,7 +51,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
 body {
     background-color: #97999B;
     font-family: "Open Sans Condensed", sans-serif;
@@ -120,32 +118,4 @@ body {
     font-weight: 300;
     color: #494a4b;
 }
-
-  ul.header li {
-    display: inline;
-    list-style-type: none;
-    margin: 0;
-  }
-  ul.header {
-    background-color: #494a4b;
-    padding: 0;
-  }
-  ul.header li a {
-    color: #FFF;
-    font-weight: 300;
-    text-decoration: none;
-    padding: 20px;
-    display: inline-block;
-  }
-  .content {
-    background-color: #FFF;
-    padding: 20px;
-  }
-  .content h2 {
-    padding: 0;
-    margin: 0;
-  }
-  .content li {
-    margin-bottom: 10px;
-  }
 </style>

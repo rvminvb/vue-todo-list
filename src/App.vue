@@ -1,34 +1,38 @@
 <template>
   <div id="app">
-     <router-view></router-view>
-    
-    <!-- <ToDo/>
-    <About/> -->
+    <ul class='header'>
+      <li> 
+        <router-link to="/">Планер</router-link> 
+      </li>
+      <li> 
+        <router-link to="/about">О проекте</router-link> 
+      </li>
+    </ul>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import ToDo from './components/ToDo.vue'
-// import About from './components/About.vue'
-
 export default {
-  name: 'App',
-  components: {
-    // ToDo,
-    // About
-  }
- 
+  name: 'App'
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
+  ul.header li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+  }
+  ul.header {
+    background-color: #494a4b;
+    padding: 0;
+  }
+  ul.header li a {
+    color: #FFF;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 20px;
+    display: inline-block;
+  }
 </style>

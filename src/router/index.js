@@ -3,14 +3,16 @@ import ToDo from '../components/ToDo'
 import About from '../components/About'
 
 export default new Router({
-    routes: [
-      {
-        path: '/',
-        component: ToDo
-      },
-      {
-        path: '/about',
-        component: About
-      }
-    ]
-      })
+  routes: [
+    {
+      path: '/',
+      component: ToDo
+    },
+    {
+      path: '/about',
+      component: About
+    }
+  ]
+})
+      
+  
