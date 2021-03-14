@@ -6,17 +6,21 @@
     <input type='text' v-model='input'/>
     <button v-on:click='addItem'>Добавить</button>
     <div class='items'>
-      <ToDoItem v-for='item in items' v-bind:key="item.id" v-bind:item="item" v-on:remove="removeItem" v-on:mark="markAsImportant" />
+      <draggable v-model='items' @start='drag=true' @end='drag=false'>
+        <ToDoItem v-for='item in items' v-bind:key="item.id" v-bind:item="item" v-on:remove="removeItem" v-on:mark="markAsImportant" /> 
+      </draggable>
       <span v-if='items.length===0'>Нет задач</span>
     </div>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import ToDoItem from './ToDoItem.vue';
 export default {
   name: 'ToDo',
   components: {
+    draggable,
     ToDoItem
   },
   data: function() {
@@ -37,13 +41,17 @@ export default {
       }
     }
   },
+  watch: {
+    items(newItems) {
+      this.saveItems(newItems);
+    }
+  },
   methods: {
     addItem: function() {
       if (this.input.trim()) {
         this.items.push({ name: this.input, priority: false, id: '' + this.idCounter });
         this.idCounter++;
         this.input = '';
-        this.saveItems();
       }
     },
 
@@ -51,15 +59,14 @@ export default {
       this.items = this.items.filter(item => {
         return item.id !== id;
       });
-      this.saveItems();
     },
 
     markAsImportant: function(id) {
       this.items = this.items.map(item => (item.id === id ? { ...item, priority: !item.priority } : item))
     },
 
-    saveItems() {
-      localStorage.setItem('items', JSON.stringify(this.items));
+    saveItems(newItems) {
+      localStorage.setItem('items', JSON.stringify(newItems));
       localStorage.setItem('idCounter', JSON.stringify(this.idCounter));
 
     }
