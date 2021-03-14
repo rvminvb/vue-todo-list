@@ -1,24 +1,16 @@
-# vue-todo-list
+# Vue Todo List
 
-## Project setup
-```
-npm install
-```
+Учебный проект для демонстрации навыков работы с Vue
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Демо
+* https://rvminvb.github.io/vue-todo-list/#/
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Функции
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* Добавление и удаление задач
+* Роутинг 
+* Помечание важных задач 
+* Drag and drop
+  
+## Спецификации
+* Vue 2.x

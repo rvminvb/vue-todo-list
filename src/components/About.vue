@@ -5,10 +5,11 @@
       <li>Добавление и удаление задач</li>
       <li> Роутинг</li>
       <li> Помечание важных задач </li>
+      <li>Drag and Drop</li>
     </ul>
     <h1>Спецификации</h1>
     <ul>
-      <li> Vue 2x </li>
+      <li> Vue 2.x </li>
     </ul>
   </div>
 </template>
