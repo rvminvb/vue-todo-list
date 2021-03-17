@@ -20,23 +20,6 @@
  }
 </script>
 
-<style scoped>
-div {
-  margin: 50px auto;
-  padding: 16px;
-  min-height: 580px;
-  max-width: 580px;
-  background-color: #f1f5f8;
-  padding-left: 30px;
-  padding-right: 30px;
-  line-height: 1.3; 
-}
-
-li {
-  list-style-type: none;
-  line-height: 1.5;
-}
-h1 {
-  font-weight: 300;
-}
+<style lang="sass" scoped>
+@import ../assets/sass/About
 </style>
